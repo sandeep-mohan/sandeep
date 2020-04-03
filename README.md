@@ -1,11 +1,25 @@
 # sandeep
-Develop a scheduler which submits the processes to the processor in the defined
-scenario, and compute the scheduler performance by providing the
-waiting time for process, turnaround time for process and average
-waiting time and turnaround time.
-CODE:
 #include<stdio.h>
 #include<conio.h>
+int main()
+{
+int bt[10],p[10],n,temp,i,j,wt[10],sum=0;
+float avg;
+printf("Enter the total number of processes:");
+scanf("%d",&n);
+printf("\n Enter the burst time for each processes:-");
+for(i=0;i<n;i++)
+{
+printf("\nBurst time of the processes P%d:",i);
+scanf("%d",&bt[i]);
+p[i]=i;
+}
+for(i=0;i<n-1;i++)
+{
+for(j=i+1;j<n;j++)
+{
+if(bt[i]>bt[j])
+{
 temp=bt[i];
 bt[i]=bt[j];
 bt[j]=temp;
@@ -35,3 +49,4 @@ printf("\n Average waiting time will be %f sec.",avg);
 getch();
 return 0;
 }
+
